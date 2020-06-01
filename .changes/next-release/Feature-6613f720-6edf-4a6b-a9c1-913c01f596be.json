@@ -1,0 +1,4 @@
+{
+    "type": "Feature",
+    "description": "Adds Systems Manager Document support features to AWS Toolkit. The support features include syntax highlighting, auto-complete, and validation, all of which will be activated on newly defined languages ssm-json and ssm-yaml, identified by files extension .ssm.{json,yaml}."
+}

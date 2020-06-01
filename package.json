@@ -54,7 +54,9 @@
         "onView:aws.cdk.explorer",
         "onCommand:aws.refreshCdkExplorer",
         "onCommand:aws.aboutToolkit",
-        "onLanguage:asl"
+        "onLanguage:asl",
+        "onLanguage:ssm-json",
+        "onLanguage:ssm-yaml"
     ],
     "main": "./extensionMain",
     "contributes": {
@@ -131,6 +133,11 @@
                     "type": "number",
                     "default": 5000,
                     "description": "%AWS.stepFunctions.asl.maxItemsComputed.desc%"
+                },
+                "aws.ssmDocument.ssm.maxItemsComputed": {
+                    "type": "number",
+                    "default": 5000,
+                    "description": "%AWS.ssmDocument.ssm.maxItemsComputed.desc%"
                 }
             }
         },
@@ -814,6 +821,25 @@
                 "aliases": [
                     "Amazon States Language"
                 ]
+            },
+            {
+                "id": "ssm-json",
+                "extensions": [
+                    ".ssm.json"
+                ],
+                "aliases": [
+                    "Amazon SSM Document Language (JSON)"
+                ]
+            },
+            {
+                "id": "ssm-yaml",
+                "extensions": [
+                    ".ssm.yaml",
+                    ".ssm.yml"
+                ],
+                "aliases": [
+                    "Amazon SSM Document Language (YAML)"
+                ]
             }
         ],
         "keybindings": [
@@ -829,6 +855,16 @@
                 "language": "asl",
                 "scopeName": "source.asl",
                 "path": "./syntaxes/ASL.tmLanguage"
+            },
+            {
+                "language": "ssm-json",
+                "scopeName": "source.ssmjson",
+                "path": "./syntaxes/SSMJSON.tmLanguage"
+            },
+            {
+                "language": "ssm-yaml",
+                "scopeName": "source.ssmyaml",
+                "path": "./syntaxes/SSMYAML.tmLanguage"
             }
         ]
     },
@@ -932,6 +968,7 @@
         "original-fs": "^1.1.0",
         "portfinder": "^1.0.25",
         "request": "^2.88.0",
+        "request-light": "^0.3.0",
         "semver": "^5.6.0",
         "sleep-promise": "^8.0.1",
         "strip-ansi": "^5.2.0",
@@ -939,6 +976,7 @@
         "triple-beam": "^1.3.0",
         "typescript": "^3.7.2",
         "uuid": "^3.3.2",
+        "vscode-json-languageservice": "3.4.9",
         "vscode-languageclient": "^6.1.1",
         "vscode-languageserver": "^6.1.1",
         "vscode-languageserver-textdocument": "^1.0.1",
